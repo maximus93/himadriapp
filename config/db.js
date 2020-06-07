@@ -1,12 +1,7 @@
 const mongoose = require("mongoose");
-const URI = "mongodb+srv://himadri:Samadder55@cluster0-ul8z6.mongodb.net/<dbname>?retryWrites=true&w=majority"
+require("dotenv").config();
+const mongoDBErrors = require("mongoose-mongodb-errors");
 
-const connectDB = async () => {
-    await mongoose.connect(URI,{
-        useUnifiedTopology:true,
-        useNewUrlParser: true
-    })
-    console.log("Database Connected");
-}
-
-module.exports = connectDB
+mongoose.Promise = global.Promise;
+mongoose.plugin(mongoDBErrors);
+mongoose.connect(process.env.MONGOURI,{ useNewUrlParser: true,useUnifiedTopology: true,useFindAndModify: false });
