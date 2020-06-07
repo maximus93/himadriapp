@@ -12,6 +12,10 @@ app.use ('/auth', require ('./Routes/auth'));
 connectDB();
 
 
+app.get("/", (req,res) => {
+    res.send("Welcome to himadri app")
+})
+
 
 app.listen(PORT, () => {
     console.log("Server Running" + PORT)
