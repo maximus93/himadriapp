@@ -11,4 +11,4 @@ const voucherLog_schema = new mongoose.Schema ({
     }
 });
 voucherLog_schema.plugin (uniqueValidator);
-module.exports = mongoose.model ('VoucherLog', voucherLog_schema);
+module.exports = mongoose.model ('VoucherLog', voucherLog_schema);    

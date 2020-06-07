@@ -10,7 +10,7 @@ require ('./config/db');
 
 //Models
 require ('./models/Voucher');
-require ('./models/VoucherLog');
+require ('./models/voucherLog');
 
 //Middleware
 app.use (bodyParser.json ());
