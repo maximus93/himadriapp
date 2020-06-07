@@ -30,8 +30,10 @@ router.post("/add", async (req, res) => {
 });
 
 router.post("/check", async (req, res) => {
-  const checkVoucherValidity = await Voucher.find({ email: req.body.email, voucherPIN: req.body.voucherPin}).populate('voucherLogId');
-  res.send(checkVoucherValidity);
+  console.log('hit kreche');
+  res.send('yoo mama')
+ /* const checkVoucherValidity = await Voucher.find({ email: req.body.email, voucherPIN: req.body.voucherPin}).populate('voucherLogId');
+  res.send(checkVoucherValidity);*/
 });
 
 router.post("/redeem", async (req, res) => {
