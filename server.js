@@ -11,6 +11,8 @@ require ('./config/db');
 //Models
 require ('./models/Voucher');
 require ('./models/voucherLog');
+require ('./models/User');
+require ('./models/UserPost');
 
 //Middleware
 app.use (bodyParser.json ());
@@ -19,6 +21,9 @@ app.use (cors ());
 
 //Routes
 app.use ('/api/voucher', require ('./controllers/Voucher'));
+app.use ('/api/user', require ('./controllers/User'));
+
+
 
 //Not Found Route
 app.use ((req, res, next) => {
