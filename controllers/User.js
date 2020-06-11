@@ -31,9 +31,8 @@ router.post("/login", async (req, res) => {
 });
 
 router.get("/getPost", async (req, res) => {
-  
-  //const updateStore = await User.findOne({ _id: req.body.token }).populate('UserPost');
-  //res.send(updateStore);
+  const updatepost = await UserPost.findOne({UserId: req.body.token });
+  res.send(updatepost);
 });
 
 router.post("/uploadPost", async (req, res) => {
