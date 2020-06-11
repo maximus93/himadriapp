@@ -19,7 +19,9 @@ router.post("/signup", async (req, res) => {
 })
 
 router.get("/login", async (req, res) => {
-    const userData = await User.findOne({ Email : req.body.email , Password :req.body.password}, function (err,user){
+
+  console.log(req.body);
+   /* const userData = await User.findOne({ Email : req.body.email , Password :req.body.password}, function (err,user){
         if(err){
           return res.status(500).send();
         }
@@ -27,7 +29,7 @@ router.get("/login", async (req, res) => {
           return res.status(200).send("invalid");
         }
         return res.status(200).send(user);
-      })
+      })*/
 })
 
 
