@@ -36,7 +36,7 @@ router.get("/getPost", async (req, res) => {
   //res.send(updateStore);
 });
 
-router.post("/getPost", async (req, res) => {
+router.post("/uploadPost", async (req, res) => {
   console.log(req.body);
  const newuserpost = new UserPost();
  newuserpost.postDesc = req.body.newpost;
