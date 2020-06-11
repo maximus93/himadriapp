@@ -7,7 +7,7 @@ router.post("/signup", async (req, res) => {
     const newuser = new User();
     newuser.Name = req.body.name;
     newuser.Email = req.body.email;
-    newuser.Password = req.body.name;
+    newuser.Password = req.body.password;
 
     await newuser.save((err, response) => {
         if(err){
@@ -16,6 +16,18 @@ router.post("/signup", async (req, res) => {
             res.send(newuser._id)
         }
     })
+})
+
+router.get("/login", async (req, res) => {
+    const userData = await User.findOne({ Email : req.body.email , Password :req.body.password}, function (err,user){
+        if(err){
+          return res.status(500).send();
+        }
+        if(!user){
+          return res.status(200).send("invalid");
+        }
+        return res.status(200).send(user);
+      })
 })
 
 
