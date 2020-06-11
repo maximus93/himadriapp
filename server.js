@@ -9,8 +9,7 @@ const bodyParser = require ('body-parser');
 require ('./config/db');
 
 //Models
-require ('./models/Voucher');
-require ('./models/voucherLog');
+
 require ('./models/User');
 require ('./models/UserPost');
 
@@ -20,7 +19,6 @@ app.use (cors ());
 
 
 //Routes
-app.use ('/api/voucher', require ('./controllers/Voucher'));
 app.use ('/api/user', require ('./controllers/User'));
 
 
@@ -47,6 +45,10 @@ app.use ((error, req, res, next) => {
     stack: error.stack,
   });
 });
+
+app.get("/getPost", async (req, res) => {
+  res.send("Welcome To Himadri App")
+})
 
 var port = process.env.PORT || 4000;
 
