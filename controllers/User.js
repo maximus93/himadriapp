@@ -20,8 +20,9 @@ router.post("/signup", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   console.log(req.body);
-   /* const userData = await User.findOne({ Email : req.body.email , Password :req.body.password}, function (err,user){
-        if(err){
+    const userData = await User.findOne({ Email : req.body.email , Password :req.body.password})
+    console.log(userData);
+        /*if(err){
           return res.status(500).send();
         }
         if(!user){
