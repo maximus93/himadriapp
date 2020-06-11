@@ -31,9 +31,30 @@ router.post("/login", async (req, res) => {
 });
 
 router.get("/getPost", async (req, res) => {
-  const updateStore = await User.findOne({ _id: req.body.token }).populate('UserPost');
-  res.send(updateStore);
+  
+  //const updateStore = await User.findOne({ _id: req.body.token }).populate('UserPost');
+  //res.send(updateStore);
 });
+
+router.post("/getPost", async (req, res) => {
+  console.log(req.body);
+ const newuserpost = new UserPost();
+ newuserpost.postDesc = req.body.newpost;
+ newuserpost.UserId = req.body.token;
+
+ const userDetails = await User.findOne({ _id: req.body.token });
+ userDetails.UserPost.push(newuserpost._id);
+ await userDetails.save();
+
+ await newuser.save((err, response) => {
+  if(err){
+      res.send(err)
+  }else{
+      res.send(newuserpost)
+  }
+})
+
+})
 
 
 
