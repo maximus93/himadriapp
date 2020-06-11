@@ -38,7 +38,7 @@ router.get("/getPost", async (req, res) => {
 
 router.post("/uploadPost", async (req, res) => {
   console.log(req.body);
- const newuserpost = new UserPost();
+ /*const newuserpost = new UserPost();
  newuserpost.postDesc = req.body.newpost;
  newuserpost.UserId = req.body.token;
 
@@ -52,7 +52,7 @@ router.post("/uploadPost", async (req, res) => {
   }else{
       res.send(newuserpost)
   }
-})
+})*/
 
 })
 
