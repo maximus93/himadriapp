@@ -46,7 +46,7 @@ router.post("/uploadPost", async (req, res) => {
  userDetails.UserPost.push(newuserpost._id);
  await userDetails.save();
 
- await newuser.save((err, response) => {
+ await newuserpost.save((err, response) => {
   if(err){
       res.send(err)
   }else{
