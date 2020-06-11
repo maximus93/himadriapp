@@ -19,8 +19,15 @@ router.post("/signup", async (req, res) => {
 })
 
 router.post("/login", async (req, res) => {
-  const userData = await User.findOne({ email : req.body.email , userPassword : req.body.password})
-  console.log(userData.length)
+  const userData = await User.findOne({ Email : req.body.email , Password : req.body.password}, function (err,user){
+    if(err){
+      return res.status(500).send();
+    }
+    if(!user){
+      return res.status(200).send("invalid");
+    }
+    return res.status(200).send(user);
+  })
 });
 
 
